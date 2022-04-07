@@ -32,7 +32,6 @@ let runLatLong = async () => {
     // creating a variable to be used in the axios call
       let geoCode = `https://maps.googleapis.com/maps/api/geocode/json?latlng=${geo}&key=${apiKey}`;
       
-      let addressCode = `https://maps.googleapis.com/maps/api/geocode/json?address=${address}&key=${apiKey}`
     // make the request using axios to get formatted address; we added lat and lng to the address to match back to our request 
     axios.get(geoCode).then((res) => {
       let address =
