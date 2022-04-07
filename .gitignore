@@ -3,6 +3,9 @@
 # node modules
 node_modules
 
+# Text files
+*.txt
+
 # Logs
 logs
 *.log
