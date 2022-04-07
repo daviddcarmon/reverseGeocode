@@ -1,7 +1,7 @@
 import axios from "axios"; // used to make the call to google api
 import fs from "fs"; // needed to write to our file
 import dotenv from "dotenv"; // npm package used to store key so its no public, in .env file
-const apiKey = dotenv.config().parsed.apiKey; // replace apiKey with the variable you created in you .env file
+dotenv.config(); // initializes dotenv so we can retrieve our apiKey in our .enf file by calling process.env.[VARIABLE]
 
 // googles geocode parameters are looking for the address concatenated separated by a plus
 let address = [
@@ -24,7 +24,7 @@ let runAddress = async () => {
   await address.map((geo) => {
     // console.log(geo)
     // creating a variable to be used in the axios call
-    let addressCode = `https://maps.googleapis.com/maps/api/geocode/json?address=${geo.address}&key=${apiKey}`;
+    let addressCode = `https://maps.googleapis.com/maps/api/geocode/json?address=${geo.address}&key=${process.env.apiKey}`;
     // make the request using axios to get formatted address; we added lat and lng to the address to match back to our request
     axios.get(addressCode).then((res) => {
       // console.log(res.data)
